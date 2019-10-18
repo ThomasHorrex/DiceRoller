@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -30,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+        Button but = findViewById(R.id.button);
+        but.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                on_button_click();
             }
         });
     }
@@ -55,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void on_button_click(View view){
+    public void on_button_click(){
         TextView tv = this.findViewById(R.id.numberTextView);
 
         Random r = new Random();
-        int number = r.nextInt(10);
+        int number = r.nextInt(6);
 
         tv.setText(Integer.toString(number));
 
