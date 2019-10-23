@@ -12,11 +12,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+     TextView Congrats, message;
+     EditText input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        input = findViewById(R.id.editText3);
+        message = findViewById(R.id.Message);
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,9 +75,21 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = this.findViewById(R.id.numberTextView);
 
         Random r = new Random();
-        int number = r.nextInt(6);
-
+        int number = r.nextInt(7-1)+1;
         tv.setText(Integer.toString(number));
+
+        if(input.getText().toString().equals(Integer.toString(number))){
+            message.setText("  CONGRATULATIONS");
+        }else{
+            message.setText("Wrong");
+        }
+        /*Random ri = new Random();
+        int numberl = ri.nextInt(7) + 1;
+        if(number == numberl)
+        {
+            Congrats.setText("Congratulations");
+        }
+        tv.setText(Integer.toString(number));*/
 
 
     }
