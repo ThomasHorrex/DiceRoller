@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
      TextView Congrats, message;
      EditText input;
+     TextView tvCounter;
+     int count =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         input = findViewById(R.id.editText3);
         message = findViewById(R.id.Message);
+        tvCounter = findViewById(R.id.tvCounter);
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -80,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(input.getText().toString().equals(Integer.toString(number))){
             message.setText("  CONGRATULATIONS");
+            count++;
+            tvCounter.setText(Integer.toString(count));
+            Toast.makeText(MainActivity.this,"CONGRATULATIONS",Toast.LENGTH_SHORT).show();
         }else{
             message.setText("Wrong");
         }

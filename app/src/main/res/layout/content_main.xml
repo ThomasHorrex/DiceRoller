@@ -56,4 +56,10 @@
         android:id="@+id/Message"
         android:textAlignment="center"/>
 
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </LinearLayout>
