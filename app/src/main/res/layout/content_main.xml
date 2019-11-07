@@ -35,8 +35,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:gravity="bottom"
-        android:text="@string/roll_the_dice"
-        android:textSize="30sp"
+        android:text="@string/i_am_feeling_lucky"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,16 +48,30 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        android:text="Enter number" />
+        android:text="@string/enter_number" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="message"
+        android:text="@string/message"
         android:id="@+id/Message"
         android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/tvCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/count"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/LPDI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="on_dicebreaker_buton_click"
+        android:text="@string/let_s_play_d_icebreakers" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />

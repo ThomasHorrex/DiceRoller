@@ -16,14 +16,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-     TextView Congrats, message;
+
+    TextView  message;
      EditText input;
      TextView tvCounter;
+     Button LPDI;
      int count =0;
+    ArrayList<String> SAL = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +37,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        InitialiseSAL();
 
         input = findViewById(R.id.editText3);
         message = findViewById(R.id.Message);
         tvCounter = findViewById(R.id.tvCounter);
+        LPDI = findViewById(R.id.LPDI);
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -46,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Button but = findViewById(R.id.button);
+
         but.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
@@ -75,29 +84,77 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void on_button_click(){
+
+
+    public void on_button_click() {
         TextView tv = this.findViewById(R.id.numberTextView);
 
         Random r = new Random();
-        int number = r.nextInt(7-1)+1;
+        int number = r.nextInt(7 - 1) + 1;
         tv.setText(Integer.toString(number));
 
-        if(input.getText().toString().equals(Integer.toString(number))){
+        if (input.getText().toString().equals(Integer.toString(number))) {
             message.setText("  CONGRATULATIONS");
             count++;
             tvCounter.setText(Integer.toString(count));
-            Toast.makeText(MainActivity.this,"CONGRATULATIONS",Toast.LENGTH_SHORT).show();
-        }else{
+            Toast.makeText(MainActivity.this, "CONGRATULATIONS", Toast.LENGTH_SHORT).show();
+        } else {
             message.setText("Wrong");
         }
-        /*Random ri = new Random();
-        int numberl = ri.nextInt(7) + 1;
-        if(number == numberl)
-        {
-            Congrats.setText("Congratulations");
-        }
-        tv.setText(Integer.toString(number));*/
 
+}
 
+    public void on_dicebreaker_buton_click(View v) {
+        LPDI = findViewById(R.id.LPDI);
+
+        Random b = new Random();
+        int number = b.nextInt(6-1) + 1;
+
+        TextView tv = findViewById(R.id.textView);
+        tv.setText(this.SAL.get(number-1));
+    }
+    private void InitialiseSAL() {
+
+        SAL.add("if you could go anywhere in the world, where would you go?");
+        SAL.add("if you were stranded on a desert island, what three things would you want to take with you?");
+        SAL.add("if you could eat only one food for the rest of your life, what would that be?");
+        SAL.add("if you won a million dollars, what is the first thing you would buy?");
+        SAL.add("If you could spend he day with one fictional character, who would it be?");
+        SAL.add("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*LPDI.setText(SAL.get(0));
+                LPDI.setText(SAL.get(1));
+                LPDI.setText(SAL.get(2));
+                LPDI.setText(SAL.get(3));
+                LPDI.setText(SAL.get(4));
+                LPDI.setText(SAL.get(5));*/
+
+
+
+
+
+
+
+
+
+
