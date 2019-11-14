@@ -89,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
     public void on_button_click() {
         TextView tv = this.findViewById(R.id.numberTextView);
 
-        Random r = new Random();
-        int number = r.nextInt(7 - 1) + 1;
+        int number = RollTheDice();
         tv.setText(Integer.toString(number));
 
         if (input.getText().toString().equals(Integer.toString(number))) {
@@ -107,11 +106,8 @@ public class MainActivity extends AppCompatActivity {
     public void on_dicebreaker_buton_click(View v) {
         LPDI = findViewById(R.id.LPDI);
 
-        Random b = new Random();
-        int number = b.nextInt(6-1) + 1;
-
         TextView tv = findViewById(R.id.textView);
-        tv.setText(this.SAL.get(number-1));
+        tv.setText(this.SAL.get(RollTheDice()-1));
     }
     private void InitialiseSAL() {
 
@@ -121,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
         SAL.add("if you won a million dollars, what is the first thing you would buy?");
         SAL.add("If you could spend he day with one fictional character, who would it be?");
         SAL.add("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+    }
+    private int RollTheDice(){
+        Random r = new Random();
+        int number = r.nextInt(6) + 1;
+        return number;
     }
 }
 
